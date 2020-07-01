@@ -1,0 +1,5 @@
+assets/
+languages/
+node_modules/
+.vscode/
+package-lock.json

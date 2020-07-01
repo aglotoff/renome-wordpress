@@ -1,0 +1,48 @@
+// Max container width
+$container-width: 86em;
+
+// Container padding
+$gutter-lg: 7.5%;
+$gutter-md: 5%;
+$gutter-sm: 3.125%;
+
+// Font Families
+$font-family-default: "Montserrat", sans-serif;
+$font-family-title: "Axis", sans-serif;
+$font-family-cursive: "Streetwear", cursive;
+
+// Font Weights
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+// Font sizes
+$font-size-default: 16px;
+
+// Line Heights
+$line-height-default: 1.2;
+
+// Color palette
+$color-black: #000;
+$color-ebony-clay: #1e2633;
+$color-tundora: #404040;
+$color-cornflower-blue: #3697ff;
+$color-au-chico: #985e5b;
+$color-stiletto: #9a3334;
+$color-silver-chalice: #b2b2b2;
+$color-silver-sand: #bbbdbf;
+$color-cardinal: #cb2431;
+$color-botticelli: #d3dbe8;
+$color-alto: #d9d9d9;
+$color-iron: #dcdee0;
+$color-athens-gray: #edeff2;
+$color-gallery: #eee;
+$color-concrete: #f2f2f2;
+$color-catskill-white: #f5f7fa;
+$color-alabaster: #f7f7f7;
+$color-white: #fff;
+
+// Semantic colors
+$color-primary: $color-ebony-clay;
+$color-secondary: $color-au-chico;
+$color-error: $color-cardinal;
+$color-focus: $color-cornflower-blue;
