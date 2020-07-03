@@ -1,0 +1,205 @@
+/**
+ * Styles for the header block.
+ */
+.header {
+	// Selector styles
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 100;
+
+	margin-top: auto;
+
+	color: $color-black;
+
+	background: $color-white;
+	box-shadow: 0 0.125em 0.3125em rgba($color-black, 0.1);
+
+	// @media queries
+	@media screen and (min-width: 60em) {
+		position: absolute;
+	}
+
+	// Pseudo-classes and pseudo-elements
+	// TODO: add code
+
+	// Nested selectors
+	// TODO: add code
+
+	// BEM elements
+	&__inner {
+		align-items: center;
+		display: flex;
+		height: 5.25em;
+		margin: 0 auto;
+		max-width: 75em;
+		padding: 0 0.625em;
+
+		@media screen and (min-width: 60em) {
+			height: 6.25em;
+		}
+	}
+
+	&__logo {
+		color: inherit;
+		text-decoration: none;
+
+		margin-right: auto;
+		padding: 0.625em 0;
+
+		.focus-utility &:focus {
+			box-shadow: 0 0 0 0.2em rgba($color-focus, 0.5);
+		}
+
+		.focus-utility .header_transparent &:focus {
+			box-shadow: 0 0 0 0.2em rgba($color-white, 0.5);
+		}
+	}
+
+	&__logo-img {
+		display: block;
+		max-width: 100%;
+
+		&_alt {
+			display: none;
+		}
+	}
+
+	&__logo-text {
+		display: none;
+	}
+
+	&__actions {
+		align-items: center;
+		display: flex;
+		order: 1;
+
+		@media screen and (min-width: 60em) {
+			margin-left: 0.5em;
+			order: initial;
+		}
+
+		&::before {
+			@media screen and (min-width: 60em) {
+				content: "";
+
+				display: block;
+				height: 0.6em;
+				margin-top: -0.125em;
+				width: 1px;
+
+				background-color: $color-black;
+			}
+		}
+
+		&::after {
+			content: "";
+
+			display: block;
+			height: 1em;
+			margin-left: 1em;
+			margin-top: -0.125em;
+			width: 1px;
+
+			background-color: $color-black;
+
+			@media screen and (min-width: 60em) {
+				display: none;
+			}
+		}
+	}
+
+	&__search-toggle {
+		display: none;
+
+		@media screen and (min-width: 60em) {
+			display: block;
+			margin-left: 1.25em;
+			padding: 2em 0.5em;
+
+			color: inherit;
+			font-size: 0.75rem;
+
+			background: transparent;
+			border: none;
+			cursor: pointer;
+
+			transition: color 0.25s ease;
+
+			&:hover {
+				color: $color-secondary;
+			}
+
+			.focus-utility &:focus {
+				box-shadow: 0 0 0 0.25em rgba($color-focus, 0.5);
+			}
+
+			.focus-utility .header_transparent &:focus {
+				box-shadow: 0 0 0 0.25em rgba($color-white, 0.5);
+			}
+		}
+	}
+
+	&__mini-cart {
+		@media screen and (min-width: 60em) {
+			margin-left: 0.875em;
+		}
+	}
+
+	&__nav {
+		margin-left: 1em;
+		order: 2;
+
+		@media screen and (min-width: 60em) {
+			margin-left: 0;
+			order: 0;
+		}
+	}
+
+	// BEM modifiers
+	&_transparent {
+		box-shadow: none;
+
+		@media screen and (min-width: 60em) {
+			color: $color-white;
+
+			background: transparent;
+		}
+
+		.header__logo-img {
+			@media screen and (min-width: 60em) {
+				display: none;
+			}
+
+			&_alt {
+				@media screen and (min-width: 60em) {
+					display: block;
+				}
+			}
+		}
+
+		.header__actions::before {
+			background: $color-white;
+		}
+	}
+
+	&_scroll {
+		@media screen and (min-width: 60em) {
+			position: fixed;
+		}
+	}
+
+	&_animated {
+		@media screen and (min-width: 60em) {
+			transition: transform 0.25s linear;
+		}
+	}
+
+	/* Don't show the header until scrolled to a certain position */
+	&_hidden {
+		@media screen and (min-width: 60em) {
+			transform: translateY(-100%);
+		}
+	}
+}

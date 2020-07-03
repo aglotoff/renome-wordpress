@@ -1,0 +1,94 @@
+/**
+ * Styles for the hamburger block.
+ */
+.hamburger {
+	@mixin hamburger-line {
+		left: 0;
+		position: absolute;
+
+		display: inline-block;
+		height: 0.125em;
+		width: 100%;
+
+		text-indent: -100em;
+
+		background: $color-black;
+
+		overflow: hidden;
+		transition: all 0.25s linear;
+
+		.hamburger:hover & {
+			background: $color-secondary;
+		}
+	}
+
+	// Selector styles
+	display: inline-block;
+	padding: 0.625em 0;
+
+	color: $color-black;
+
+	background: transparent;
+	border: none;
+	cursor: pointer;
+
+	// @media queries
+	// TODO: add code
+
+	// Pseudo-classes and pseudo-elements
+	// TODO: add code
+
+	// Nested selectors
+	// TODO: add code
+
+	// BEM elements
+	&__inner {
+		position: relative;
+
+		display: inline-block;
+		height: 0.875em;
+		width: 1em;
+	}
+
+	&__inner::before,
+	&__inner::after {
+		content: "";
+
+		@include hamburger-line();
+	}
+
+	&__inner::before {
+		top: 0;
+
+		transform-origin: 0 0;
+
+		.hamburger_open & {
+			transform: translateX(0.0625em) scale(1.1) rotate(45deg);
+		}
+	}
+
+	&__inner::after {
+		bottom: 0;
+
+		transform-origin: 0 100%;
+
+		.hamburger_open & {
+			transform: translateX(0.0625em) scale(1.1) rotate(-45deg);
+		}
+	}
+
+	&__title {
+		@include hamburger-line();
+
+		top: 50%;
+
+		transform: translateY(-50%);
+
+		.hamburger_open & {
+			opacity: 0;
+		}
+	}
+
+	// BEM modifiers
+	// TODO: add code
+}

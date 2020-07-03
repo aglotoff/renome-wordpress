@@ -1,0 +1,107 @@
+/**
+ * Styles for the mini cart block.
+ */
+.mini-cart {
+	// Selector styles
+	position: relative;
+
+	// @media queries
+	// TODO: add code
+
+	// Pseudo-classes and pseudo-elements
+	// TODO: add code
+
+	// Nested selectors
+	// TODO: add code
+
+	// BEM elements
+	&__trigger {
+		display: block;
+		padding: 2em 0.4em;
+
+		color: inherit;
+		font-size: 0.75rem;
+		white-space: nowrap;
+
+		background: transparent;
+		border: none;
+		cursor: pointer;
+
+		transition: color 0.25s ease;
+
+		&:hover {
+			color: $color-secondary;
+		}
+
+		.focus-utility &:focus {
+			box-shadow: 0 0 0 0.25em rgba($color-focus, 0.5);
+		}
+
+		.focus-utility .header_transparent &:focus {
+			box-shadow: 0 0 0 0.25em rgba($color-white, 0.5);
+		}
+	}
+
+	&__item-count {
+		display: inline-block;
+		margin-left: 0.5em;
+
+		font-weight: $font-weight-bold;
+		line-height: 1;
+		vertical-align: top;
+	}
+
+	&__drawer {
+		position: absolute;
+		right: 0;
+		top: 100%;
+
+		padding: 0.3125em;
+
+		font-weight: $font-weight-bold;
+		text-align: center;
+
+		background: $color-white;
+		box-shadow: 1px 1px 3px rgba($color-black, 0.3);
+		opacity: 0;
+
+		transition:
+			opacity 0.2s ease-out,
+			visibility 0.2s step-start 0.2s;
+		visibility: hidden;
+
+		&_expanded {
+			opacity: 1;
+
+			transition-delay: 0s;
+			visibility: visible;
+		}
+	}
+
+	&__total,
+	&__action {
+		display: block;
+		padding: 1.075em 1.825em;
+
+		color: $color-primary;
+		font-size: 0.75rem;
+		white-space: nowrap;
+	}
+
+	&__action {
+		display: block;
+
+		text-decoration: none;
+
+		&:hover {
+			color: $color-secondary;
+		}
+
+		.focus-utility &:focus {
+			box-shadow: 0 0 0 0.25em rgba($color-focus, 0.5);
+		}
+	}
+
+	// BEM modifiers
+	// TODO: add code
+}
