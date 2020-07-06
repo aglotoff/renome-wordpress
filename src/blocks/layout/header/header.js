@@ -5,7 +5,7 @@
 import { getEmSize, forceReflow } from '../../../js/utils/dom-helpers';
 import { throttle } from '../../../js/utils/helpers';
 
-import * as HeaderSearch from '../header-search';
+import * as DesktopSearch from '../desktop-search';
 import * as MiniCart from '../mini-cart';
 import * as Nav from '../nav';
 
@@ -123,14 +123,14 @@ export function init() {
 
 	isTransparent = $header.hasClass( CLASSES.BLOCK_TRANSPARENT );
 
-	elements.$searchToggle.click( HeaderSearch.show );
+	elements.$searchToggle.click( DesktopSearch.show );
 
 	$( window ).scroll( throttle( updateHeaderStyles, SCROLL_INTERVAL ) );
 
 	// Process initial scroll position
 	updateHeaderStyles();
 
-	HeaderSearch.init();
+	DesktopSearch.init();
 	MiniCart.init();
 	Nav.init();
 }

@@ -1,5 +1,5 @@
 /**
- * @file Implementation of the search block
+ * @file Implementation of the desktop search block
  */
 
 /* global focusTrap */
@@ -7,7 +7,7 @@
 // -------------------------- BEGIN MODULE VARIABLES --------------------------
 
 // Block name
-const BLOCK = 'header-search';
+const BLOCK = 'desktop-search';
 
 // Element selectors
 const SELECTORS = {
@@ -20,7 +20,10 @@ const CLASSES = {
 	BLOCK_VISIBLE: `${ BLOCK }_visible`,
 };
 
+// Cache of jQuery elements
 const elements = {};
+
+// Focus-trap instance
 let popupFocusTrap;
 
 // --------------------------- END MODULE VARIABLES ---------------------------
@@ -47,7 +50,7 @@ export function hide() {
 }
 
 /**
- * Initialize the search block.
+ * Initialize the desktop search block.
  */
 export function init() {
 	const $search = $( SELECTORS.BLOCK );

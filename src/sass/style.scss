@@ -9,12 +9,19 @@
  * ----------------------------------------------------------------------------
  */
 
-@import "../blocks/common/page/page";
-@import "../blocks/common/hamburger/hamburger";
-@import "../blocks/common/header/header";
-@import "../blocks/common/header-search/header-search";
+@import "../blocks/layout/page/page";
 @import "../blocks/common/icon/icon";
-@import "../blocks/common/mini-cart/mini-cart";
-@import "../blocks/common/mobile-search/mobile-search";
-@import "../blocks/common/nav/nav";
-@import "../blocks/common/skip-link/skip-link";
+
+/*
+ * ----------------------------------------------------------------------------
+ * Layout Blocks
+ * ----------------------------------------------------------------------------
+ */
+
+@import "../blocks/layout/desktop-search/desktop-search";
+@import "../blocks/layout/hamburger/hamburger";
+@import "../blocks/layout/header/header";
+@import "../blocks/layout/mini-cart/mini-cart";
+@import "../blocks/layout/mobile-search/mobile-search";
+@import "../blocks/layout/nav/nav";
+@import "../blocks/layout/skip-link/skip-link";

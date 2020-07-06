@@ -2,7 +2,7 @@ import focusTrap from 'focus-trap';
 import jQuery from 'jquery';
 import svg4everybody from 'svg4everybody';
 
-import * as Header from '../blocks/common/header';
+import * as Header from '../blocks/layout/header';
 
 svg4everybody();
 

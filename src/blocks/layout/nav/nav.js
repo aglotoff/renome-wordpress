@@ -1,5 +1,5 @@
 /**
- * @file Implementation of the navigation block
+ * @file Implementation of the navigation menu block
  */
 
 import Dropdown from '../../../js/utils/dropdown';
