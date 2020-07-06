@@ -30,7 +30,7 @@ const CLASSES = {
 
 const STICKY_HEADER_OFFSET = 6; // Scroll offset to make the header "sticky"
 const VISIBLE_HEADER_OFFSET = 32; // Scroll offset to show the "sticky" header
-const SCROLL_INTERVAL = 200; // Scroll event throttling interval
+const SCROLL_INTERVAL = 100; // Scroll event throttling interval
 
 // Possible header states
 const HEADER_STATES = {

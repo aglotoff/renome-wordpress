@@ -10,6 +10,17 @@
  * @package renome
  */
 
+$header_class = 'header';
+
+if ( is_admin_bar_showing() ) {
+	$header_class .= ' header_after-admin-bar';
+}
+
+if ( ! is_front_page() ) {
+	$header_class .= ' header_transparent';
+}
+
+$header_class .= ' page__header';
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -19,10 +30,13 @@
 
 	<?php wp_head(); ?>
 </head>
-<body class="page">
-	<a class="skip-link page__skip-link" href="#content">Skip to content</a>
 
-	<header class="header page__header" id="masthead">
+<body class="page">
+	<a class="skip-link page__skip-link" href="#content">
+		<?php esc_html_e( 'Skip to content', 'renome' ); ?>
+	</a>
+
+	<header class="<?php echo esc_attr( $header_class ); ?>" id="masthead">
 		<div class="header__inner">
 			<?php get_template_part( 'template-parts/header/logo' ); ?>
 			<?php get_template_part( 'template-parts/header/nav' ); ?>

@@ -14,6 +14,8 @@
 
 get_header();
 ?>
-	Hello there!
+	<main style="min-height: 250vw">
+		Hello there!
+	</main>
 <?php
 get_footer();

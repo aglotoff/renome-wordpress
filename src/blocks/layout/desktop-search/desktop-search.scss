@@ -26,7 +26,15 @@
 	// TODO: add code
 
 	// Nested selectors
-	// TODO: add code
+
+	/* Keep these values in sync with WordPress admin bar styles! */
+	.header_after-admin-bar > & {
+		margin-top: 32px;
+
+		@media screen and (max-width: 782px) {
+			margin-top: 46px;
+		}
+	}
 
 	// BEM elements
 	&__form {

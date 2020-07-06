@@ -202,4 +202,13 @@
 			transform: translateY(-100%);
 		}
 	}
+
+	/* Keep these values in sync with WordPress admin bar styles! */
+	&_after-admin-bar {
+		padding-top: 32px;
+
+		@media screen and (max-width: 782px) {
+			padding-top: 46px;
+		}
+	}
 }
