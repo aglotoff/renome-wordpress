@@ -12,10 +12,15 @@ namespace Renome;
 // Replace the version number of the theme on each release.
 define( 'RENOME_VERSION', '0.1.0' );
 
+/**
+ * Setup theme
+ */
 function setup_theme() {
-	register_nav_menus( array(
-		'main-menu' => esc_html__( 'Main Menu', 'renome' ),
-	) );
+	register_nav_menus(
+		array(
+			'main-menu' => esc_html__( 'Main Menu', 'renome' ),
+		)
+	);
 }
 
 add_action( 'after_setup_theme', 'Renome\setup_theme' );
@@ -57,6 +62,6 @@ require get_template_directory() . '/inc/tgm/renome.php';
 require_once get_template_directory() . '/inc/class-walker-nav-menu.php';
 
 /**
- * SVG icon related functions
+ * Icon Functions
  */
 require_once get_template_directory() . '/inc/icon-functions.php';

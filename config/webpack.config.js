@@ -1,3 +1,5 @@
+const path = require( 'path' );
+
 module.exports = ( { mode = 'development' } ) => ( {
 	output: {
 		filename: '[name].js',
@@ -11,6 +13,7 @@ module.exports = ( { mode = 'development' } ) => ( {
 				use: {
 					loader: 'eslint-loader',
 					options: {
+						configFile: path.join( __dirname, '.eslintrc.js' ),
 						emitWarning: true,
 					},
 				},

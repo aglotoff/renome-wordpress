@@ -2,9 +2,9 @@
  * @file Implementation of the navigation menu block
  */
 
+// Utility imports
 import Dropdown from '../../../js/utils/dropdown';
 import Drilldown from '../../../js/utils/drilldown';
-
 import { getEmSize } from '../../../js/utils/dom-helpers';
 import { debounce } from '../../../js/utils/helpers';
 

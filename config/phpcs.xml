@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ruleset name="Renome">
+    <description>Renome Theme PHPCS ruleset</description>
+    <rule ref="Wordpress">
+		<exclude name="Generic.Files.LineEndings" />
+    </rule>
+</ruleset>

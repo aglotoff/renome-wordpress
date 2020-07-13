@@ -2,6 +2,7 @@
  * Implementation of the mini cart block
  */
 
+// Utility imports
 import Dropdown from '../../../js/utils/dropdown';
 
 // -------------------------- BEGIN MODULE VARIABLES --------------------------

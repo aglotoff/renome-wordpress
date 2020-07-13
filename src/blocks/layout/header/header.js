@@ -2,9 +2,11 @@
  * @file Implementation of the header block.
  */
 
+// Utility imports
 import { getEmSize, forceReflow } from '../../../js/utils/dom-helpers';
 import { throttle } from '../../../js/utils/helpers';
 
+// Child block imports
 import * as DesktopSearch from '../desktop-search';
 import * as MiniCart from '../mini-cart';
 import * as Nav from '../nav';
