@@ -28,6 +28,7 @@ module.exports = {
 					'after-comment',
 				],
 			}
-		]
+		],
+		'selector-class-pattern': '^[a-z](-?[a-z0-9])*(__[a-z](-?[a-z0-9])*)?(_[a-z](-?[a-z0-9])*){0,2}$',
 	}
 };

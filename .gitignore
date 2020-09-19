@@ -1,5 +1,7 @@
 assets/
 languages/
 node_modules/
+src/blocks/common/icon/icon.scss
+src/images/icons.svg
 .vscode/
 package-lock.json

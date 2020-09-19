@@ -46,5 +46,10 @@
     "vinyl-named": "^1.1.0",
     "webpack": "^4.43.0",
     "webpack-stream": "^5.2.1"
+  },
+  "dependencies": {
+    "focus-trap": "^5.1.0",
+    "jquery": "^3.5.1",
+    "svg4everybody": "^2.1.9"
   }
 }

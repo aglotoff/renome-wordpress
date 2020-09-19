@@ -13,9 +13,17 @@ namespace Renome;
 define( 'RENOME_VERSION', '0.1.0' );
 
 /**
- * Activate required plugins
+ * Setup theme
  */
-require get_template_directory() . '/inc/tgm/renome.php';
+function setup_theme() {
+	register_nav_menus(
+		array(
+			'main-menu' => esc_html__( 'Main Menu', 'renome' ),
+		)
+	);
+}
+
+add_action( 'after_setup_theme', 'Renome\setup_theme' );
 
 /**
  * Enqueue scripts and styles.
@@ -42,3 +50,27 @@ function enqueue_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'Renome\enqueue_scripts' );
+
+/**
+ * Disable Gutenberg Editor and use classic editor for all posts and pages.
+ */
+function disable_gutenberg_editor() {
+	return false;
+}
+
+add_filter( 'use_block_editor_for_post_type', 'Renome\disable_gutenberg_editor' );
+
+/**
+ * Activate required plugins
+ */
+require get_template_directory() . '/inc/tgm/renome.php';
+
+/**
+ * Main Menu Walker
+ */
+require_once get_template_directory() . '/inc/class-walker-nav-menu.php';
+
+/**
+ * Icon Functions
+ */
+require_once get_template_directory() . '/inc/icon-functions.php';

@@ -18,18 +18,7 @@ require_once get_template_directory() . '/inc/tgm/class-tgm-plugin-activation.ph
  * Register the required plugins for this theme.
  */
 function register_required_plugins() {
-	$plugins = array(
-
-		// Unyson Framework.
-		array(
-			'name'             => 'Unyson',
-			'slug'             => 'unyson',
-			'required'         => true,
-			'version'          => '2.7.23',
-			'force_activation' => true,
-		),
-
-	);
+	$plugins = array();
 
 	$config = array(
 		'id'           => 'renome',                // Unique ID for hashing notices for multiple instances of TGMPA.

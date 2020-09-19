@@ -1,155 +1,178 @@
-#!/usr/bin/env node
-
 /* eslint-disable no-console */
 
+// Node Imports
 const fs = require( 'fs' );
 const path = require( 'path' );
+const util = require( 'util' );
 
+// Imports
 const minimist = require( 'minimist' );
-const mkdirp = require( 'mkdirp' );
 const Mustache = require( 'mustache' );
 
+// Constants
 const BLOCK_DIR = './src/blocks';
+const BLOCK_NAME_REGEXP = /^([a-z][0-9a-z]*)(-[0-9a-z]+)*$/;
 const TEMPLATE_DIR = './src/blocks/templates';
 
-const createDirectory = function ( normalized ) {
-	return new Promise( ( resolve, reject ) => {
-		const dirName = path.join( BLOCK_DIR, normalized );
-		fs.exists( dirName, ( exists ) => {
-			if ( exists ) {
-				reject( new Error( 'Block already exists: ' + normalized ) );
-			} else {
-				resolve( dirName );
-			}
-		} );
-	} ).then( ( dirName ) => {
-		return new Promise( ( resolve, reject ) => {
-			mkdirp( dirName, ( err ) => {
-				if ( err ) {
-					reject( err );
-				} else {
-					resolve( dirName );
-				}
-			} );
-		} );
-	} );
-};
+// Promisified Functions
+const exists = util.promisify( fs.exists );
+const mkdir = util.promisify( fs.mkdir );
+const readFile = util.promisify( fs.readFile );
+const writeFile = util.promisify( fs.writeFile );
 
-const readTemplate = function ( type ) {
-	const templateFile = path.join( TEMPLATE_DIR, `block.${ type }.mustache` );
-	return new Promise( ( resolve, reject ) => {
-		fs.readFile( templateFile, 'utf8', ( err, data ) => {
-			if ( err ) {
-				reject( err );
-			} else {
-				resolve( data );
-			}
-		} );
-	} );
-};
-
-const renderTemplate = function ( dirName, blockName, type ) {
-	const outputFile = path.join( dirName, blockName + '.' + type );
-	return readTemplate( type ).then( ( templateData ) => {
-		const result = Mustache.render( templateData.toString(), {
-			block: blockName,
-		} );
-		return new Promise( ( resolve, reject ) => {
-			fs.writeFile( outputFile, result, 'utf8', ( err ) => {
-				if ( err ) {
-					reject( err );
-				} else {
-					resolve();
-				}
-			} );
-		} );
-	} );
-};
-
-const usageStr = `Usage: make-block BLOCK... [OPTION]...
-Create one or multiple BLOCK(s)
-
-Select implementation technologies:
-  -a, --all	 Generate .scss, .pug, and .js files (default)
-  -c, --css	 Generate a .scss file for block styles
-  -j, --js	  Generate a .js file for block behavior`;
-
-const opts = minimist( process.argv.slice( 2 ) );
-
-if ( opts._.length === 0 ) {
-	console.error( usageStr );
-	process.exit( 1 );
+function capitalize( word ) {
+	return word.substr( 0, 1 ).toUpperCase() + word.substr( 1 );
 }
 
-let params;
+function getConstructorName( blockName ) {
+	return blockName.split( '-' ).reduce( ( result, word ) => {
+		return result + capitalize( word );
+	}, '' );
+}
 
-if ( Object.keys( opts ).length > 1 ) {
-	params = {};
+function getBlockTitle( blockName ) {
+	return blockName.replace( /-/g, ' ' );
+}
 
-	Object.keys( opts ).forEach( ( option ) => {
+async function createDirectory( dirName ) {
+	const blockExists = await exists( dirName );
+	if ( blockExists ) {
+		throw new Error( `Block already exists: ${ dirName }` );
+	}
+
+	return await mkdir( dirName, { recursive: true } );
+}
+
+async function renderTemplate( templateName, tags, outputPath ) {
+	const templatePath = path.join( TEMPLATE_DIR, templateName );
+	const template = await readFile( templatePath, 'utf8' );
+	const result = Mustache.render( template.toString(), tags );
+	await writeFile( outputPath, result, 'utf8' );
+}
+
+function renderAllTemplates( dirName, options ) {
+	const blockName = path.basename( dirName );
+
+	const tags = {
+		blockName,
+		blockTitle: getBlockTitle( blockName ),
+		constructorName: getConstructorName( blockName ),
+	};
+
+	const results = [];
+	for ( const type of Object.keys( options.types ) ) {
+		let templateName = `block.${ type }.mustache`;
+		if ( type === 'js' && options.generateClass ) {
+			templateName = 'block.class.js.mustache';
+		}
+
+		const outputPath = path.join( dirName, `${ blockName }.${ type }` );
+		results.push( renderTemplate( templateName, tags, outputPath ) );
+
+		if ( type === 'js' ) {
+			results.push(
+				renderTemplate(
+					'index.js.mustache',
+					tags,
+					path.join( dirName, 'index.js' )
+				)
+			);
+		}
+	}
+
+	return Promise.all( results );
+}
+
+async function createBlock( blockPath, options ) {
+	const dirName = path.join( BLOCK_DIR, blockPath );
+
+	const blockName = path.basename( dirName );
+	if ( ! BLOCK_NAME_REGEXP.test( blockName ) ) {
+		throw new Error( `Invalid block name: ${ blockName }` );
+	}
+
+	await createDirectory( dirName );
+	await renderAllTemplates( dirName, options );
+}
+
+async function createAllBlocks( blocks, options ) {
+	try {
+		for ( const block of blocks ) {
+			await createBlock( block, options );
+		}
+	} catch ( err ) {
+		console.error( err.message );
+		process.exit( 1 );
+	}
+}
+
+( async () => {
+	const usageStr = `Usage: make-block BLOCK... [OPTION]...
+    Create one or multiple BLOCK(s)
+    Select implementation technologies:
+    -a, --all     Generate .scss, .pug, and .js files (default)
+    -s, --scss    Generate a .scss file for block styles
+    -j, --js      Generate a .js file for block behavior
+    Additional options:
+    -c, --class   Generate a JS class definition for the block
+    `;
+
+	const parsedArgs = minimist( process.argv.slice( 2 ) );
+
+	const blocks = parsedArgs._;
+	if ( blocks.length === 0 ) {
+		console.error( usageStr );
+		process.exit( 1 );
+	}
+
+	const options = {
+		types: {},
+		generateClass: false,
+	};
+
+	for ( const option of Object.keys( parsedArgs ) ) {
 		switch ( option ) {
 			case '_':
 				break;
+
 			case 'a':
 			case 'all':
-				params = {
+				options.types = {
 					pug: true,
 					scss: true,
 					js: true,
 				};
 				break;
-			case 'c':
-			case 'css':
-				params.scss = true;
+
+			case 's':
+			case 'scss':
+				options.types.scss = true;
 				break;
+
 			case 'j':
 			case 'js':
-				params.js = true;
+				options.types.js = true;
 				break;
+
+			case 'c':
+			case 'class':
+				options.generateClass = true;
+				break;
+
 			default:
 				console.error( 'Uknown option:', option );
 				console.error( '' );
 				console.error( usageStr );
 				process.exit( 1 );
 		}
-	} );
-} else {
-	params = {
-		scss: true,
-		js: true,
-	};
-}
+	}
 
-const results = opts._.map( ( file ) => {
-	return new Promise( ( resolve, reject ) => {
-		const normalized = path.normalize( file );
+	if ( Object.keys( options.types ).length === 0 ) {
+		options.types = {
+			scss: true,
+			js: true,
+		};
+	}
 
-		if ( path.isAbsolute( normalized ) || normalized.startsWith( '..' ) ) {
-			return reject( new Error( 'Invalid block name: ' + normalized ) );
-		}
-
-		const blockName = path.basename( normalized );
-		if ( ! /^[a-z](-?[a-z0-9])*$/.test( blockName ) ) {
-			return reject( new Error( 'Invalid block name: ' + normalized ) );
-		}
-
-		resolve(
-			createDirectory( normalized ).then( ( dirName ) => {
-				const renderedTemplates = [];
-				for ( const type in params ) {
-					if ( params.hasOwnProperty( type ) ) {
-						renderedTemplates.push(
-							renderTemplate( dirName, blockName, type )
-						);
-					}
-				}
-				return Promise.all( renderedTemplates );
-			} )
-		);
-	} );
-} );
-
-Promise.all( results ).catch( ( err ) => {
-	console.error( err.message );
-	process.exit( 1 );
-} );
+	await createAllBlocks( blocks, options );
+} )();

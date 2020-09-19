@@ -9,4 +9,19 @@
  * ----------------------------------------------------------------------------
  */
 
-@import "../blocks/common/page/page";
+@import "../blocks/layout/page/page";
+@import "../blocks/common/icon/icon";
+
+/*
+ * ----------------------------------------------------------------------------
+ * Layout Blocks
+ * ----------------------------------------------------------------------------
+ */
+
+@import "../blocks/layout/desktop-search/desktop-search";
+@import "../blocks/layout/hamburger/hamburger";
+@import "../blocks/layout/header/header";
+@import "../blocks/layout/mini-cart/mini-cart";
+@import "../blocks/layout/mobile-search/mobile-search";
+@import "../blocks/layout/nav/nav";
+@import "../blocks/layout/skip-link/skip-link";
