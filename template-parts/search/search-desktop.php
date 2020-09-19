@@ -14,5 +14,5 @@
 			<?php Renome\svg_icon( 'search', __( 'Search', 'renome' ) ); ?>
 		</button>
 		<button class="desktop-search__close" type="button" aria-label="<?php echo esc_attr( __( 'Close', 'renome' ) ); ?>>"></button>
-	</form>
-</div>
+	</form><!-- .desktop-search__form -->
+</div><!-- .desktop-search -->

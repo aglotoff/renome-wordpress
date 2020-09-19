@@ -1,5 +1,3 @@
-const defaultPrettierConfig = require( '@wordpress/prettier-config' );
-
 module.exports = {
 	env: {
 		browser: true,
@@ -10,15 +8,5 @@ module.exports = {
 	extends: [ 'plugin:@wordpress/eslint-plugin/recommended' ],
 	parserOptions: {
 		sourceType: 'module',
-	},
-	rules: {
-		'linebreak-style': [ 'error', 'windows' ],
-		'prettier/prettier': [
-			'error',
-			{
-				...defaultPrettierConfig,
-				endOfLine: 'auto',
-			},
-		],
 	},
 };

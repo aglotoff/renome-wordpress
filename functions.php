@@ -52,6 +52,15 @@ function enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'Renome\enqueue_scripts' );
 
 /**
+ * Disable Gutenberg Editor and use classic editor for all posts and pages.
+ */
+function disable_gutenberg_editor() {
+	return false;
+}
+
+add_filter( 'use_block_editor_for_post_type', 'Renome\disable_gutenberg_editor' );
+
+/**
  * Activate required plugins
  */
 require get_template_directory() . '/inc/tgm/renome.php';

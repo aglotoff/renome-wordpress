@@ -7,14 +7,15 @@
 
 ?>
 
-<nav class="nav header__nav">
+<nav id="site-navigation" class="nav header__nav">
 	<button class="hamburger nav__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="site-navigation">
 		<span class="hamburger__inner">
 			<span class="hamburger__title">
 				<?php esc_html_e( 'Toggle nav', 'renome' ); ?>
 			</span>
 		</span>
-	</button>
+	</button><!-- .nav__toggle -->
+
 	<div class="nav__menu" id="site-navigation">
 		<div class="nav__scrollpane">
 			<?php get_template_part( 'template-parts/search/search', 'mobile' ); ?>
@@ -30,6 +31,6 @@
 				)
 			);
 			?>
-		</div>
-	</div>
-</nav>
+		</div><!-- .nav__scrollpane -->
+	</div><!-- .nav__menu -->
+</nav><!-- #site-navigation -->

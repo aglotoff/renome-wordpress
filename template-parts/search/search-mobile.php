@@ -12,4 +12,4 @@
 	<button class="mobile-search__submit" type="submit">
 		<?php Renome\svg_icon( 'search', __( 'Search', 'renome' ) ); ?>
 	</button>
-</form>
+</form><!-- .mobile-search -->
