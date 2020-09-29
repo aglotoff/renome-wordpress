@@ -18,7 +18,18 @@ require_once get_template_directory() . '/inc/tgm/class-tgm-plugin-activation.ph
  * Register the required plugins for this theme.
  */
 function register_required_plugins() {
-	$plugins = array();
+	$plugins = array(
+
+		// Unyson Framework.
+		array(
+			'name'             => 'Unyson', // The plugin name.
+			'slug'             => 'unyson', // The plugin slug (typically the folder name).
+			'required'         => true,     // If false, the plugin is only 'recommended' instead of required.
+			'version'          => '2.7.24', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+			'force_activation' => true,     // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+		),
+
+	);
 
 	$config = array(
 		'id'           => 'renome',                // Unique ID for hashing notices for multiple instances of TGMPA.
