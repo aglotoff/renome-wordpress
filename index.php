@@ -14,6 +14,8 @@
 
 get_header();
 ?>
-	Hello there!
+
+<?php get_template_part( 'template-parts/content/content', 'page' ); ?>
+
 <?php
 get_footer();

@@ -39,6 +39,16 @@ function enqueue_scripts() {
 	wp_enqueue_style( 'renome-style' );
 
 	wp_register_script(
+		'renome-vendor-script',
+		get_template_directory_uri() . '/assets/js/vendor.js',
+		array(),
+		RENOME_VERSION,
+		true
+	);
+
+	wp_enqueue_script( 'renome-vendor-script' );
+
+	wp_register_script(
 		'renome-main-script',
 		get_template_directory_uri() . '/assets/js/main.js',
 		array(),

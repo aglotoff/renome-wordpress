@@ -1,17 +1,13 @@
-// Library imports
-import focusTrap from 'focus-trap';
-import jQuery from 'jquery';
-import svg4everybody from 'svg4everybody';
+// Utils Imports
+import * as focusUtility from './utils/focus';
 
 // Block imports
 import * as Header from '../blocks/layout/header';
+import { Slider } from '../blocks/common/slider';
 
-// Initialize libraries
-svg4everybody();
-
-// Make libraries globally available
-window.focusTrap = focusTrap;
-window.jQuery = window.$ = jQuery;
+// Initialize utils
+focusUtility.init();
 
 // Initialize blocks
 Header.init();
+Slider.initAll();

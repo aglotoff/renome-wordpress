@@ -127,7 +127,7 @@ export function init() {
 
 	elements.$searchToggle.click( DesktopSearch.show );
 
-	$( window ).scroll( throttle( updateHeaderStyles, SCROLL_INTERVAL ) );
+	$( window ).on( 'scroll', throttle( updateHeaderStyles, SCROLL_INTERVAL ) );
 
 	// Process initial scroll position
 	updateHeaderStyles();

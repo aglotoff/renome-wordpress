@@ -26,7 +26,6 @@ const PROXY = 'https://renome.local';
 const TOP = '.';
 const SRC = `${ TOP }/src`;
 const ASSETS = `${ TOP }/assets`;
-const CONFIG = `${ TOP }/config`;
 const LANGUAGES = `${ TOP }/languages`;
 
 module.exports = {
@@ -143,10 +142,10 @@ module.exports = {
 					console: true,
 				},
 			],
-			configFile: `${ CONFIG }/.stylelintrc.js`,
+			configFile: `${ TOP }/.stylelintrc.js`,
 		},
 
-		webpack: require( `../${ CONFIG }/webpack.config.js` )( { mode: env } ),
+		webpack: require( `../webpack.config.js` )( { mode: env } ),
 
 		wpPot: {
 			domain: THEME,
