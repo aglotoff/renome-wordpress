@@ -84,3 +84,9 @@ require_once get_template_directory() . '/inc/class-walker-nav-menu.php';
  * Icon Functions
  */
 require_once get_template_directory() . '/inc/icon-functions.php';
+
+/**
+ * Picture Helpers.
+ */
+require_once get_template_directory() . '/inc/class-picture.php';
+require_once get_template_directory() . '/inc/class-picture-factory.php';

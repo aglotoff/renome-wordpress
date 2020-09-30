@@ -18,7 +18,7 @@ const THEME = 'renome';
 /**
  * Name of the development server
  */
-const PROXY = 'https://renome.local';
+const PROXY = 'http://renome.local';
 
 /**
  * Path prefixes
@@ -103,7 +103,6 @@ module.exports = {
 	plugins: {
 		browserSync: {
 			proxy: PROXY,
-			https: true,
 		},
 
 		imagemin: {
