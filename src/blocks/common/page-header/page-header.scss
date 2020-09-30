@@ -1,0 +1,41 @@
+/**
+ * Styles for the page header block
+ */
+.page-header {
+	// Selector styles
+	background: {
+		color: $color-tundora;
+		position: center;
+		repeat: no-repeat;
+		size: cover;
+	}
+
+	// @media queries
+	// TODO: add code
+
+	// Pseudo-classes and pseudo-elements
+	// TODO: add code
+
+	// Nested selectors
+	// TODO: add code
+
+	// BEM elements
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		margin: 0 auto;
+		height: 100vh;
+		max-height: 600px;
+		max-width: 1200px;
+		padding: 10px 10px 60px;
+
+		@media screen and (min-width: 60em) {
+			max-height: 700px;
+			padding-bottom: 85px;
+		}
+	}
+
+	// BEM modifiers
+	// TODO: add code
+}
