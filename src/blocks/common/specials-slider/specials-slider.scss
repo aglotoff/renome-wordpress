@@ -1,0 +1,240 @@
+/**
+ * Styles for the specials slider block
+ */
+.specials-slider {
+	// Selector styles
+	padding-bottom: 5em;
+	overflow: hidden;
+
+	// @media queries
+	@media screen and (min-width: 48em) {
+		padding-left: 2em;
+		padding-bottom: 3.125em;
+	}
+
+	// Pseudo-classes and pseudo-elements
+	// TODO: add code
+
+	// Nested selectors
+	// TODO: add code
+
+	// BEM elements
+	&__inner {
+		position: relative;
+		z-index: 1;
+
+		@media screen and (min-width: 48em) {
+			padding-right: 20%;
+		}
+	}
+
+	&__container {
+		position: relative;
+	}
+
+	&__slide {
+		left: 0;
+		position: absolute;
+		top: 0;
+
+		display: block;
+		width: 100%;
+
+		overflow: visible;
+		transition: transform 0.3s linear;
+
+		&_active {
+			display: block;
+			position: relative;
+		}
+
+		&_moving {
+			/* stylelint-disable-next-line declaration-no-important */
+			transform: translateX(-100%) !important;
+		}
+	}
+
+	&__arrows {
+		position: absolute;
+		left: -1.75em;
+		top: 50%;
+		z-index: 100;
+
+		display: block;
+		margin-top: -3.5em;
+	}
+
+	&__arrow {
+		display: none;
+
+		font-size: 1rem;
+
+		@media screen and (min-width: 48em) {
+			position: relative;
+
+			display: block;
+			height: 3.5em;
+			padding: 0;
+			width: 3.5em;
+
+			text-indent: -100em;
+
+			background: $color-athens-gray;
+			border: none;
+			cursor: pointer;
+			outline: none;
+			transition: background-color 0.2s ease;
+		}
+
+		&::after {
+			@media screen and (min-width: 48em) {
+				content: "";
+
+				position: absolute;
+				top: 1.375em;
+
+				display: block;
+				width: 0.75em;
+				height: 0.75em;
+
+				border-top: 0.125em solid $color-primary;
+				border-right: 0.125em solid $color-primary;
+				transition: border-color 0.2s ease;
+			}
+		}
+
+		&:hover {
+			@media screen and (min-width: 48em) {
+				background: $color-secondary;
+			}
+
+			&::after {
+				@media screen and (min-width: 48em) {
+					border-color: $color-white;
+				}
+			}
+		}
+
+		&:active {
+			box-shadow: 0 0 0 0.2em rgba($color-secondary, 0.5);
+		}
+
+		.focus-utility &:focus {
+			z-index: 2;
+
+			box-shadow: 0 0 0 0.2em rgba($color-primary, 0.5);
+
+			&:hover {
+				box-shadow: 0 0 0 0.2em rgba($color-secondary, 0.5);
+			}
+		}
+
+		&_dir_prev {
+			&::after {
+				@media screen and (min-width: 48em) {
+					right: 1.25em;
+
+					transform: rotate(-135deg);
+				}
+			}
+		}
+
+		&_dir_next {
+			@media screen and (min-width: 48em) {
+				margin-top: 0.125em;
+			}
+
+			&::after {
+				@media screen and (min-width: 48em) {
+					left: 1.25em;
+
+					transform: rotate(45deg);
+				}
+			}
+		}
+	}
+
+	&__slide-inner {
+		transform-origin: 100% 50%;
+		transition:
+			opacity 0.15s linear,
+			transform 0.3s linear;
+	}
+
+	&__slide-img {
+		display: block;
+		width: 100%;
+	}
+
+	&__slide-text {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 100%;
+
+		text-align: center;
+
+		opacity: 0;
+		transition: opacity 0.3s ease;
+
+		@media screen and (min-width: 48em) {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.specials-slider__slide_active & {
+			opacity: 1;
+		}
+	}
+
+	&__slide-title {
+		margin-top: 1.475em;
+
+		font-size: 0.9375rem;
+		font-weight: $font-weight-bold;
+		letter-spacing: 0.05em;
+	}
+
+	&__slide-weekday {
+		margin-top: 0.9em;
+
+		color: $color-iron;
+		font-family: $font-family-cursive;
+		font-size: 1.25rem;
+		letter-spacing: 0.1em;
+	}
+
+	&__slide-price {
+		position: absolute;
+		right: 1.325em;
+		top: 1.325em;
+
+		height: 2.675em;
+		padding: 0 1.325em;
+
+		font-size: 0.9375rem;
+		letter-spacing: 0.1em;
+		line-height: 2.675;
+
+		background: $color-athens-gray;
+
+		opacity: 0;
+		transition: opacity 0.3s ease;
+
+		@media screen and (min-width: 48em) {
+			height: 2.95em;
+			padding-left: 1.35em;
+			padding-right: 1.35em;
+
+			font-size: 1.0625rem;
+			line-height: 2.95;
+		}
+
+		.specials-slider__slide_active & {
+			opacity: 1;
+		}
+	}
+
+	// BEM modifiers
+	// TODO: add code
+}
