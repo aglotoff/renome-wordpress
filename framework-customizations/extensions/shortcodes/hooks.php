@@ -26,7 +26,7 @@ function disable_default_shortcodes( $to_disable ) {
 			'accordion',
 			'button',
 			'calendar',
-			'call_to_action',
+			// 'call_to_action',
 			'column',
 			'contact_form',
 			'divider',
