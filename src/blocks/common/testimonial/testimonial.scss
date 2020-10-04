@@ -1,0 +1,118 @@
+/**
+ * Styles for the testimonial block
+ */
+.testimonial {
+	// Selector styles
+	padding-top: 4.375em;
+
+	// @media queries
+	@media screen and (min-width: 60em) {
+		padding-top: 6.25em;
+	}
+
+	// Pseudo-classes and pseudo-elements
+	// TODO: add code
+
+	// Nested selectors
+	// TODO: add code
+
+	// BEM elements
+	&__content {
+		background: $color-alabaster;
+
+		padding: 4.375em 0;
+
+		@media screen and (min-width: 60em) {
+			padding-bottom: 6.25em;
+			padding-top: 6.25em;
+		}
+	}
+
+	&__inner {
+		margin: 0 auto;
+		max-width: 61.875em;
+		padding: 0 0.625em;
+
+		@media screen and (min-width: 48em) {
+			align-items: center;
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+
+	&__img-wrapper {
+		margin: -8.75em auto 0;
+
+		text-align: center;
+
+		@media screen and (min-width: 48em) {
+			flex: 0 1 auto;
+			margin-left: 0;
+			margin-right: 0;
+			max-width: 22em;
+		}
+
+		@media screen and (min-width: 60em) {
+			margin-top: -12.5em;
+		}
+	}
+
+	&__img {
+		display: inline-block;
+		max-width: 100%;
+	}
+
+	&__quote {
+		margin: 1.75em auto 0;
+		max-width: 26.25em;
+		padding: 0 0.625em;
+
+		letter-spacing: 0.2em;
+		text-align: center;
+
+		@media screen and (min-width: 48em) {
+			margin-left: 3.75em;
+			margin-right: 0;
+			margin-top: 0;
+		}
+	}
+
+	&__quote-text {
+		font-size: 1.25rem;
+		line-height: 1.6;
+
+		@media screen and (min-width: 60em) {
+			font-size: 1.5625rem;
+			line-height: 1.52;
+		}
+
+		&::before,
+		&::after {
+			content: "\"";
+		}
+	}
+
+	&__quote-footer {
+		margin-top: 1.5em;
+
+		font-family: $font-family-title;
+		font-weight: $font-weight-bold;
+		text-transform: uppercase;
+	}
+
+	// BEM modifiers
+	&_reverse {
+		.testimonial__inner {
+			@media screen and (min-width: 48em) {
+				flex-direction: row-reverse;
+			}
+		}
+
+		.testimonial__quote {
+			@media screen and (min-width: 48em) {
+				margin-left: 0;
+				margin-right: 3.75em;
+			}
+		}
+	}
+}
