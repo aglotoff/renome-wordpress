@@ -1,0 +1,60 @@
+/**
+ * Styles for the services block
+ */
+.services {
+	// Selector styles
+	text-align: center;
+
+	// @media queries
+	// TODO: add code
+
+	// Pseudo-classes and pseudo-elements
+	// TODO: add code
+
+	// Nested selectors
+	// TODO: add code
+
+	// BEM elements
+	&__list-wrapper {
+		background: $color-alabaster;
+		margin-top: 2.5em;
+
+		@media screen and (min-width: 48em) {
+			margin-top: 6em;
+		}
+	}
+
+	&__list {
+		@media screen and (min-width: 48em) {
+			display: flex;
+			justify-content: center;
+			margin: 0 auto;
+			max-width: 75em;
+		}
+	}
+
+	&__item {
+		padding: 2.5em 0.5em;
+
+		font-size: 1.25rem;
+		line-height: 1.9;
+		letter-spacing: 0.1em;
+
+		@media screen and (min-width: 48em) {
+			flex: 0 1 17.7em;
+			padding: 6em 0.75em;
+		}
+
+		&:not(:first-child) {
+			border-top: 1px solid $color-alto;
+
+			@media screen and (min-width: 48em) {
+				border-left: 1px solid $color-alto;
+				border-top: none;
+			}
+		}
+	}
+
+	// BEM modifiers
+	// TODO: add code
+}
