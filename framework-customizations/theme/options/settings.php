@@ -25,9 +25,10 @@ $options = array(
 						'type'    => 'select',
 						'label'   => __( 'Media Type', 'renome' ),
 						'choices' => array(
-							'fb'      => 'Facebook',
-							'twitter' => 'Twitter',
-							'gplus'   => 'Google Plus',
+							'fb'        => 'Facebook',
+							'twitter'   => 'Twitter',
+							'gplus'     => 'Google Plus',
+							'instagram' => 'Instagram',
 						),
 					),
 					'link'  => array(
