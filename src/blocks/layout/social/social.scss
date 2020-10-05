@@ -1,0 +1,51 @@
+/**
+ * Styles for the social links block.
+ */
+.social {
+	// Selector styles
+	display: flex;
+	justify-content: center;
+
+	// @media queries
+	// TODO: add code
+
+	// Pseudo-classes and pseudo-elements
+	// TODO: add code
+
+	// Nested selectors
+	// TODO: add code
+
+	// BEM elements
+	&__item {
+		&:not(:first-child) {
+			margin-left: 0.625em;
+		}
+	}
+
+	&__link {
+		display: block;
+		height: 2.75em;
+		width: 2.75em;
+
+		color: $color-primary;
+		font-size: 0.75rem;
+		line-height: 2.75;
+		text-decoration: none;
+
+		border: 2px solid $color-primary;
+		border-radius: 50%;
+		transition: all 0.25s ease;
+
+		&:hover {
+			color: $color-secondary;
+			border-color: $color-secondary;
+		}
+
+		.focus-utility &:focus {
+			box-shadow: 0 0 0 0.25em rgba($color-focus, 0.5);
+		}
+	}
+
+	// BEM modifiers
+	// TODO: add code
+}

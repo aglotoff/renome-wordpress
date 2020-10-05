@@ -21,6 +21,22 @@
 
 /*
  * ----------------------------------------------------------------------------
+ * Layout Blocks
+ * ----------------------------------------------------------------------------
+ */
+
+@import "../blocks/layout/desktop-search/desktop-search";
+@import "../blocks/layout/footer/footer";
+@import "../blocks/layout/hamburger/hamburger";
+@import "../blocks/layout/header/header";
+@import "../blocks/layout/mini-cart/mini-cart";
+@import "../blocks/layout/mobile-search/mobile-search";
+@import "../blocks/layout/nav/nav";
+@import "../blocks/layout/skip-link/skip-link";
+@import "../blocks/layout/social/social";
+
+/*
+ * ----------------------------------------------------------------------------
  * Common Blocks
  * ----------------------------------------------------------------------------
  */
@@ -38,17 +54,3 @@
 @import "../blocks/common/specials/specials";
 @import "../blocks/common/specials-slider/specials-slider";
 @import "../blocks/common/testimonial/testimonial";
-
-/*
- * ----------------------------------------------------------------------------
- * Layout Blocks
- * ----------------------------------------------------------------------------
- */
-
-@import "../blocks/layout/desktop-search/desktop-search";
-@import "../blocks/layout/hamburger/hamburger";
-@import "../blocks/layout/header/header";
-@import "../blocks/layout/mini-cart/mini-cart";
-@import "../blocks/layout/mobile-search/mobile-search";
-@import "../blocks/layout/nav/nav";
-@import "../blocks/layout/skip-link/skip-link";
