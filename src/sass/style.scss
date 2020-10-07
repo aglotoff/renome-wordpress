@@ -9,6 +9,7 @@
  * ----------------------------------------------------------------------------
  */
 
+@import "../../node_modules/magnific-popup/src/css/main";
 @import "../../node_modules/slick-carousel/slick/slick.scss";
 
 /*
@@ -43,6 +44,7 @@
 
 @import "../blocks/common/btn/btn";
 @import "../blocks/common/cta/cta";
+@import "../blocks/common/gallery/gallery";
 @import "../blocks/common/heading-group/heading-group";
 @import "../blocks/common/icon/icon";
 @import "../blocks/common/img-group/img-group";

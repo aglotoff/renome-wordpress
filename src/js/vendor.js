@@ -4,6 +4,7 @@ import jQuery from 'jquery';
 import svg4everybody from 'svg4everybody';
 
 // Import jQuery plugins
+import 'magnific-popup';
 import 'slick-carousel';
 
 // Initialize libraries
