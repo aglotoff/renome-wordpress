@@ -1,0 +1,86 @@
+/**
+ * Styles for the image group block
+ */
+.img-group {
+	// Selector styles
+	display: flex;
+	overflow: hidden;
+
+	// @media queries
+	// TODO: add code
+
+	// Pseudo-classes and pseudo-elements
+	// TODO: add code
+
+	// Nested selectors
+	// TODO: add code
+
+	// BEM elements
+	&__wrapper {
+		overflow: hidden;
+		width: 80%;
+
+		&_wide {
+			width: 90%;
+		}
+	}
+
+	&__img {
+		display: block;
+		max-width: 100%;
+	}
+
+	// BEM modifiers
+	$vertical-directions: top, bottom;
+	$horizontal-directions: left, right;
+
+	@each $vdir in $vertical-directions {
+		@each $hdir in $horizontal-directions {
+			&_order_#{$vdir}-#{$hdir} {
+				@if $vdir == top {
+					flex-direction: column-reverse;
+				} @else {
+					flex-direction: column;
+				}
+
+				.img-group__wrapper {
+					@if $hdir == left {
+						&:nth-child(odd) {
+							margin-left: auto;
+						}
+
+						&:nth-child(even) {
+							margin-right: auto;
+						}
+					} @else {
+						&:nth-child(odd) {
+							margin-right: auto;
+						}
+
+						&:nth-child(even) {
+							margin-left: auto;
+						}
+					}
+
+					@if $vdir == top {
+						&:not(:last-child) {
+							margin-top: -20%;
+						}
+
+						&_wide:not(:last-child) {
+							margin-top: -10%;
+						}
+					} @else {
+						&:not(:first-child) {
+							margin-top: -20%;
+						}
+
+						&_wide:not(:first-child) {
+							margin-top: -10%;
+						}
+					}
+				}
+			}
+		}
+	}
+}

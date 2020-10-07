@@ -62,6 +62,11 @@ class Walker_Nav_Menu extends \Walker_Nav_Menu {
 			$link_class .= ' nav__link_submenu';
 		}
 
+		$active = $item->current || $item->current_item_ancestor || $item->current_item_parent;
+		if ( $active ) {
+			$link_class .= ' nav__link_active';
+		}
+
 		$output .= '<li class="nav__item" id="menu-item-' . esc_attr( $item->ID ) . '">';
 
 		if ( $args->walker->has_children ) {

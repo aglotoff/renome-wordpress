@@ -22,6 +22,19 @@
 		@include container();
 	}
 
+	&__skip-link {
+		left: 0;
+		position: fixed;
+		top: 0;
+		z-index: 200;
+
+		transform: translateY(-100%);
+
+		&:focus {
+			transform: translateY(0);
+		}
+	}
+
 	// BEM modifiers
 	// TODO: add code
 }

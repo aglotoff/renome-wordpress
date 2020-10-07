@@ -52,4 +52,4 @@ $header_class .= ' page__header';
 		<?php get_template_part( 'template-parts/search/search', 'desktop' ); ?>
 	</header><!-- #masthead -->
 
-	<main id="content" style="min-height: 250vw">
+	<main id="content">

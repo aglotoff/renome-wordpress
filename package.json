@@ -50,6 +50,8 @@
   "dependencies": {
     "focus-trap": "^5.1.0",
     "jquery": "^3.5.1",
+    "magnific-popup": "^1.1.0",
+    "slick-carousel": "^1.8.1",
     "svg4everybody": "^2.1.9"
   }
 }

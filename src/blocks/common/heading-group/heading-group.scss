@@ -1,0 +1,77 @@
+/**
+ * Styles for the heading group block
+ */
+.heading-group {
+	// Selector styles
+	font-weight: $font-weight-bold;
+	text-transform: lowercase;
+
+	// @media queries
+	// TODO: add code
+
+	// Pseudo-classes and pseudo-elements
+	// TODO: add code
+
+	// Nested selectors
+	// TODO: add code
+
+	// BEM elements
+	&__title {
+		display: block;
+
+		color: $color-white;
+		font-family: $font-family-title;
+		letter-spacing: 0.1em;
+	}
+
+	&__subtitle {
+		display: block;
+
+		color: $color-secondary;
+		letter-spacing: 0.1em;
+	}
+
+	// BEM modifiers
+	&_lvl_1 {
+		.heading-group__title {
+			font-size: 1.9375rem;
+
+			@media screen and (min-width: 60em) {
+				font-size: 3.125rem;
+			}
+		}
+
+		.heading-group__subtitle {
+			font-size: 1.5rem;
+
+			@media screen and (min-width: 60em) {
+				font-size: 1.875rem;
+			}
+		}
+	}
+
+	&_lvl_2 {
+		.heading-group__title {
+			color: $color-primary;
+			font-size: 2.375rem;
+			letter-spacing: 0.2em;
+
+			@media screen and (min-width: 60em) {
+				font-size: 3.125rem;
+			}
+		}
+
+		.heading-group__subtitle {
+			margin-top: 1em;
+
+			font-size: 0.6875rem;
+			text-transform: uppercase;
+
+			@media screen and (min-width: 60em) {
+				margin-top: 0.7em;
+
+				font-size: 0.75rem;
+			}
+		}
+	}
+}

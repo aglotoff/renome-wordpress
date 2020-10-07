@@ -39,6 +39,16 @@ function enqueue_scripts() {
 	wp_enqueue_style( 'renome-style' );
 
 	wp_register_script(
+		'renome-vendor-script',
+		get_template_directory_uri() . '/assets/js/vendor.js',
+		array(),
+		RENOME_VERSION,
+		true
+	);
+
+	wp_enqueue_script( 'renome-vendor-script' );
+
+	wp_register_script(
 		'renome-main-script',
 		get_template_directory_uri() . '/assets/js/main.js',
 		array(),
@@ -74,3 +84,9 @@ require_once get_template_directory() . '/inc/class-walker-nav-menu.php';
  * Icon Functions
  */
 require_once get_template_directory() . '/inc/icon-functions.php';
+
+/**
+ * Picture Helpers.
+ */
+require_once get_template_directory() . '/inc/class-picture.php';
+require_once get_template_directory() . '/inc/class-picture-factory.php';

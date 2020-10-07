@@ -12,6 +12,14 @@
 ?>
 	</main><!-- #content -->
 
+	<footer class="footer" id="colophon">
+		<div class="footer__inner">
+			<?php get_template_part( 'template-parts/footer/social' ); ?>
+			<?php get_template_part( 'template-parts/footer/logo' ); ?>
+			<?php get_template_part( 'template-parts/footer/copyright' ); ?>
+		</div><!-- .footer__inner -->
+	</footer><!-- #colophon -->
+
 	<?php wp_footer(); ?>
 </body>
 </html>

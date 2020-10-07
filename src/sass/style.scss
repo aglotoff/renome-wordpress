@@ -5,12 +5,20 @@
 
 /*
  * ----------------------------------------------------------------------------
- * Common Blocks
+ * Third-Party Styles
+ * ----------------------------------------------------------------------------
+ */
+
+@import "../../node_modules/magnific-popup/src/css/main";
+@import "../../node_modules/slick-carousel/slick/slick.scss";
+
+/*
+ * ----------------------------------------------------------------------------
+ * Page Styles
  * ----------------------------------------------------------------------------
  */
 
 @import "../blocks/layout/page/page";
-@import "../blocks/common/icon/icon";
 
 /*
  * ----------------------------------------------------------------------------
@@ -19,9 +27,32 @@
  */
 
 @import "../blocks/layout/desktop-search/desktop-search";
+@import "../blocks/layout/footer/footer";
 @import "../blocks/layout/hamburger/hamburger";
 @import "../blocks/layout/header/header";
 @import "../blocks/layout/mini-cart/mini-cart";
 @import "../blocks/layout/mobile-search/mobile-search";
 @import "../blocks/layout/nav/nav";
 @import "../blocks/layout/skip-link/skip-link";
+@import "../blocks/layout/social/social";
+
+/*
+ * ----------------------------------------------------------------------------
+ * Common Blocks
+ * ----------------------------------------------------------------------------
+ */
+
+@import "../blocks/common/btn/btn";
+@import "../blocks/common/cta/cta";
+@import "../blocks/common/gallery/gallery";
+@import "../blocks/common/heading-group/heading-group";
+@import "../blocks/common/icon/icon";
+@import "../blocks/common/img-group/img-group";
+@import "../blocks/common/page-header/page-header";
+@import "../blocks/common/rich-text/rich-text";
+@import "../blocks/common/section/section";
+@import "../blocks/common/services/services";
+@import "../blocks/common/slider/slider";
+@import "../blocks/common/specials/specials";
+@import "../blocks/common/specials-slider/specials-slider";
+@import "../blocks/common/testimonial/testimonial";
